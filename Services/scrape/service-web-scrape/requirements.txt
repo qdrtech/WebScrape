@@ -3,4 +3,11 @@
 # Usage: pi install -r requirements.txt
 
 # Flask Framework
-Flask==1.0.2
+Flask
+ 
+# Connexion
+connexion
+
+# Flask Injector
+Flask-Injector
+
