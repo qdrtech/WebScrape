@@ -2,12 +2,8 @@
 # This file is used by pip to instlal required python packages
 # Usage: pi install -r requirements.txt
 
-# Flask Framework
-Flask
- 
-# Connexion
-connexion
+#beautifulsoup
+beautifulsoup4
 
-# Flask Injector
-Flask-Injector
-
+#requests
+requests
