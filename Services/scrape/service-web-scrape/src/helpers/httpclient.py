@@ -9,4 +9,4 @@ class HttpClient():
     def get(self, url, headers=None):
         headers = headers is None and self.headers or headers
         request = requests.get(url, headers=headers)
-        return request.text
+        return request.content

@@ -6,10 +6,10 @@ from helpers.httpclient import HttpClient
 url = "https://www.amazon.com/dp/B01N259MDU/ref=nav_timeline_asin?_encoding=UTF8&psc=1"
 http = HttpClient()
 
-htmlDoc = HtmlObject(http.get(url), None)
+htmlDoc = HtmlObject(http.get(url), url, None)
 profile = ScraperProfile("Amazon")
 webScraper = AmazonScraper(profile, htmlDoc)
-items = webScraper.pullProductInformation()
+items = webScraper.getProductInformation()
 print(items)
 
 
