@@ -1,12 +1,20 @@
 from bs4 import BeautifulSoup
+from models.scraperprofile import ScraperProfile
 from models.htmlobject import HtmlObject
 
-class Scraper(object):
 
-    def __init__(self, object):
-        self.html = object.html
-        self.soup = BeautifulSoup(object.html, 'html.parser')
-        print(self.soup.title)
+class Scraper():
+
+    def __init__(self, profile):
+        self.scraperProfile = profile
+        self.soup = BeautifulSoup(profile.HtmlObject.html, 'html.parser')
+    
+    def harvestLinks(self):
+        links = self.soup.find_all("a")
+        return links
+        
+
+
 
 html_doc = """
 <html><head><title>The Dormouse's story</title></head>
@@ -21,8 +29,9 @@ and they lived at the bottom of a well.</p>
 
 <p class="story">...</p>
 """
+htmlDoc = HtmlObject(html_doc, None)
+profile = ScraperProfile("Amazon",htmlDoc)
+webScraper = Scraper(profile)
+print(webScraper.harvestLinks())
 
-it = HtmlObject()
-it.html = html_doc
 
-soup = Scraper(it)
