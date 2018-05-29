@@ -24,6 +24,7 @@ class AmazonScraper(GenericScraper):
             'ORIGINAL_PRICE':ORIGINAL_PRICE,
             'AVAILABILITY':AVAILABILITY,
             'URL':self.HtmlObject.url,
+            'Meta':self.pullProductInformation()
             }
         return data
 
@@ -32,6 +33,6 @@ class AmazonScraper(GenericScraper):
         dictionary = []
         for item in items:
             it = item.parent
-            product = AmazonProduct(it.th.text.replace(' ', ''), it.td.text.replace(' ', ''))
+            product = {'Name':it.th.text.strip(), 'Value':it.td.text.strip()}
             dictionary.append(product) 
         return dictionary
