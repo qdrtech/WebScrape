@@ -1,0 +1,9 @@
+
+# This file is used by pip to instlal required python packages
+# Usage: pi install -r requirements.txt
+
+#beautifulsoup
+beautifulsoup4
+
+#requests
+requests
